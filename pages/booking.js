@@ -1,8 +1,7 @@
-import { FaIoxhost } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import React, { useState } from "react";
-import Calendar from "./components/calendar";
+import ReactCalendar from "./components/ReactCalendar.jsx";
 
 export default function Booking({ sidebar, ShowSideBar }) {
   return (
@@ -23,7 +22,10 @@ export default function Booking({ sidebar, ShowSideBar }) {
               </a>
             </Link>
           </div>
-          <Calendar />
+        </div>
+        <div className="bookingContent">
+          <h2>Choose a day</h2>
+          <ReactCalendar />
         </div>
       </div>
     </>

@@ -36,7 +36,7 @@ export default function Register() {
     };
 
     const result = await fetch(
-      "https://127.0.0.1:8001/api/register",
+      "https://wdev2.be/natalia21/eindwerk/api/register",
       requestOptions
     );
     const data = await result.json();

@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps }) {
             </Link>
           </li>
           <li>
+            
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
           </li>
         </ul>

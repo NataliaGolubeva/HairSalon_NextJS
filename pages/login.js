@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import cookie from "js-cookie";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -7,16 +8,19 @@ export default function Login() {
   const router = useRouter();
   async function login_check() {
     let item = { username, password };
-    let result = await fetch("https://127.0.0.1:8001/api/login_check", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(item),
-    });
+    let result = await fetch(
+      "https://wdev2.be/natalia21/eindwerk/api/login_check",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(item),
+      }
+    );
     result = await result.json();
-    localStorage.setItem("user-info", JSON.stringify(result));
+    cookie.set("user-info", JSON.stringify(result));
     router.push("/");
   }
   return (
