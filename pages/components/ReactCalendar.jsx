@@ -11,7 +11,7 @@ export default function ReactCalendar() {
   const tileDisabled = ({ activeStartDate, date, view }) =>
     date.getDay() === 0 || date.getDay() === 6;
   const minDate = new Date();
-  console.log(minDate);
+
   return (
     <>
       <Calendar

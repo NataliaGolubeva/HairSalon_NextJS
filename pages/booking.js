@@ -2,6 +2,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import React, { useState } from "react";
 import ReactCalendar from "./components/ReactCalendar.jsx";
+import ServiceList from "./components/ServiceList";
 
 export default function Booking({ sidebar, ShowSideBar }) {
   return (
@@ -9,7 +10,7 @@ export default function Booking({ sidebar, ShowSideBar }) {
       <div className="bookBar">
         <Link href="#">
           <a className="menuBook" onClick={ShowSideBar}>
-            BOOK
+            APPOINTMENT
           </a>
         </Link>
       </div>
@@ -26,6 +27,7 @@ export default function Booking({ sidebar, ShowSideBar }) {
         <div className="bookingContent">
           <h2>Choose a day</h2>
           <ReactCalendar />
+          <ServiceList />
         </div>
       </div>
     </>

@@ -5,12 +5,13 @@ export default function Register() {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
   async function register(e) {
     e.preventDefault();
-    let item = { name, lastName, email, password };
+    let item = { name, lastName, email, phoneNumber, password };
     // let result = await fetch("https://127.0.0.1:8001/api/register", {
     //   method: "POST",
     //   headers: {
@@ -26,6 +27,7 @@ export default function Register() {
     urlencoded.append("name", name);
     urlencoded.append("lastName", lastName);
     urlencoded.append("email", email);
+    urlencoded.append("phoneNumber", phoneNumber);
     urlencoded.append("password", password);
 
     var requestOptions = {
@@ -67,6 +69,11 @@ export default function Register() {
           type="text"
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="phone number"
+          onChange={(e) => setPhoneNumber(e.target.value)}
         />
         <input
           type="password"

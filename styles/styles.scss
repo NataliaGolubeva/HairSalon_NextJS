@@ -52,13 +52,14 @@ body {
 }
 
 .barMenu {
-  background-color: #658080;
+  background-color: #002923;
   width: 500px;
   height: 100vh;
   position: fixed;
   top: 0;
   right: -100%;
   transition: 850ms;
+  color: #e5e5e5;
 }
 .barMenu.active {
   right: 0;
@@ -68,22 +69,106 @@ body {
     right: 0;
     padding: 0.7rem;
     font-size: 1.5rem;
-    &:hover {
-      background-color: #658080;
-    }
+    color: #e5e5e5;
   }
 }
 .menuToggle {
-  background-color: #658080;
+  background-color: #002923;
   width: 100%;
   height: 20px;
 }
+.container {
+  display: block;
+  .header {
+    position: fixed;
+    text-align: center;
+    height: 50%;
+    width: 50%;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1 {
+      font-size: 60px;
+    }
+  }
+  .iconArrow {
+    font-size: 50px;
+    position: fixed;
+    text-align: center;
+    width: 10%;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+  }
+  .homeContent {
+    margin-top: 180px;
+    display: flex;
+    justify-content: space-around;
+    .block {
+      .quote {
+        font-size: 30px;
+        width: 200px;
+        text-align: center;
+        margin-left: 95px;
+        &.left {
+          padding-bottom: 50px;
+        }
+        &.right {
+          padding-top: 50px;
+        }
+      }
+    }
+  }
+  .bottomBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    resize: vertical;
+    min-height: 700px;
+    .centerQuote {
+      font-size: 30px;
+      text-align: center;
+      resize: vertical;
+      margin-top: 30%;
+      margin-bottom: auto;
+    }
+    .centerLink {
+      a {
+        display: block;
+        text-decoration: none;
+        font-size: 20px;
+        text-align: center;
+        resize: vertical;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 10px;
+        color: black;
+        &:hover {
+          color: #e5e5e5;
+          background-color: #0e0906;
+        }
+      }
+    }
+  }
+}
+.wrapper {
+  margin: 20px;
+  .containerAbout {
+    margin-top: 20px;
+    display: flex;
 
-footer {
+    .content {
+      font-size: 20px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 50px;
+  height: 70px;
   background-color: #0e0906;
   color: white;
   width: 100%;

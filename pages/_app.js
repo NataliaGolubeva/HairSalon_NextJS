@@ -5,6 +5,7 @@ import { useRouter, Router } from "next/router";
 import { useState } from "react";
 import Login from "./login";
 import Booking from "./booking";
+import Footer from "./footer";
 import { route } from "next/dist/next-server/server/router";
 
 Modal.setAppElement("#__next");
@@ -53,7 +54,6 @@ function MyApp({ Component, pageProps }) {
             </Link>
           </li>
           <li>
-            
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
           </li>
         </ul>
@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Login />
       </Modal>
-      <footer>copyright</footer>
+      <Footer />
     </>
   );
 }
