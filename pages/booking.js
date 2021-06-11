@@ -14,7 +14,7 @@ export default function Booking({ sidebar, ShowSideBar }) {
           </a>
         </Link>
       </div>
-      <div className={sidebar ? "barMenu active" : "barMenu"}>
+      <div className={sidebar ? "bookingMenu active" : "bookingMenu"}>
         <div className="bookBody">
           <div className="menuToggle">
             <Link href="#">
@@ -27,7 +27,6 @@ export default function Booking({ sidebar, ShowSideBar }) {
         <div className="bookingContent">
           <h2>Choose a day</h2>
           <ReactCalendar />
-          <ServiceList />
         </div>
       </div>
     </>

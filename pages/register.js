@@ -52,36 +52,43 @@ export default function Register() {
     router.push("/login");
   }
   return (
-    <>
+    <div className="inputPage">
       <h1>Register</h1>
-      <form onSubmit={register}>
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="phone number"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <form onSubmit={register} className="inputBlock">
+        <div className="inputWindow">
+          <input
+            className="formInput"
+            type="text"
+            placeholder="name"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            className="formInput"
+            type="text"
+            placeholder="last name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <input
+            className="formInput"
+            type="text"
+            placeholder="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="formInput"
+            type="text"
+            placeholder="phone number"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+          <input
+            className="formInput"
+            type="password"
+            placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <button type="submit">Register</button>
       </form>
-    </>
+    </div>
   );
 }

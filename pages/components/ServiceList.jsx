@@ -22,7 +22,10 @@ export default function ServiceList() {
       <ul>
         {serviceList.length > 0 &&
           serviceList.map((service) => (
-            <li key={service.id}> {service.title}</li>
+            <li key={service.id}>
+              {" "}
+              {service.title} {service.price} €<div>{service.category}</div>
+            </li>
           ))}
       </ul>
     </>

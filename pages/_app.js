@@ -67,6 +67,12 @@ function MyApp({ Component, pageProps }) {
       <Modal
         isOpen={!!router.query.login}
         onRequestClose={() => router.push("/")}
+        style={{
+          content: {
+            backgroundColor: "#658080",
+            border: "2px solid #AAA9A9",
+          },
+        }}
       >
         <Login />
       </Modal>

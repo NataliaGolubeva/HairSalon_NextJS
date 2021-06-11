@@ -33,7 +33,7 @@ export default function Home() {
               />
             </div>
             <div className="quote right">
-              "Invest in your hair. It's a crown you never take off."{" "}
+              "Invest in your hair. It's a crown you never take off."
             </div>
           </div>
         </div>
