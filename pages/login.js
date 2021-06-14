@@ -1,76 +1,64 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Cookies from "js-cookie";
+import LoginForm from "./components/LoginForm";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const [error, setError] = useState("");
   function handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);
     }
     return response;
   }
-  async function login_check() {
-    let data = { username, password };
-    let result = await fetch(
-      "https://wdev2.be/natalia21/eindwerk/api/login_check",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
+  function login_check() {
+    let data = { email, password };
+    setIsLoading(true);
+    let result = fetch("https://wdev2.be/natalia21/eindwerk/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((response) => response.json())
+
       .then((data) => {
-        console.log("Success:", data);
+        if (data.error) {
+          setError("Invalid credentials");
+        }
+        if (data && !data.error) {
+          setUser(data);
+          Cookies.set("user-info", JSON.stringify(user));
+          router.push("/");
+        }
+        console.log(data);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        setError("Server Error");
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false); // stop the loader
       });
-
-    //result = await response.json();
-    Cookies.set("user-info", JSON.stringify(result));
-
-    //router.push("/");
   }
+  // <ul>{user && user.map((u) => <li key={u.id}>{u.name}</li>)}</ul>
 
   return (
-    <div className="inputPage">
-      <h1>Login</h1>
-      <div className="inputText">
-        <p>
-          First time here? <a href="/register">Register</a>
-        </p>
-      </div>
-      <div className="inputBlock">
-        <div className="inputWindow">
-          <input
-            className="formInput"
-            type="text"
-            placeholder="email"
-            onChange={(e) => setUsername(e.target.value)}
-            required="true"
-          />
-        </div>
-        <div className="inputWindow">
-          <input
-            className="formInput"
-            type="password"
-            placeholder="password"
-            onChange={(e) => setPassword(e.target.value)}
-            required="true"
-          />
-        </div>
-      </div>
-
-      <button onClick={login_check} type="submit">
-        Login
-      </button>
-    </div>
+    <>
+      <LoginForm
+        setEmail={setEmail}
+        setPassword={setPassword}
+        login_check={login_check}
+        isLoading={isLoading}
+        error={error}
+      />
+    </>
   );
 }

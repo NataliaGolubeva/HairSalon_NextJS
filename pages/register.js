@@ -65,7 +65,7 @@ export default function Register() {
           <input
             className="formInput"
             type="text"
-            placeholder="last name"
+            placeholder="last ncd ha  ame"
             onChange={(e) => setLastName(e.target.value)}
           />
           <input
