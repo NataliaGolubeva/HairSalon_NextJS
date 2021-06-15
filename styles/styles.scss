@@ -5,6 +5,11 @@
 //steelGrey #AAA9A9
 //deepBlack #0E0906
 // burnham #002923 deepGreen
+//vars
+
+div {
+  font-family: myFirstFont;
+}
 * {
   margin: 0;
   padding: 0;
@@ -125,6 +130,29 @@ body {
     &:active {
       background-color: black;
       color: #e5e5e5;
+    }
+  }
+}
+
+.servicePage {
+  margin: 20px;
+  h1 {
+    text-align: center;
+  }
+  .serviceContent {
+    margin: 20px;
+    .serviceDetails {
+      list-style: none;
+      display: flex;
+      margin-bottom: 20px;
+      font-size: 20px;
+      .name {
+        padding-right: 10px;
+      }
+      .price {
+        padding-right: 15px;
+        font-size: 1rem;
+      }
     }
   }
 }

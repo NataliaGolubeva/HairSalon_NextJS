@@ -2,7 +2,7 @@ export default function about() {
   return (
     <>
       <div className="wrapper">
-        <h1>About me</h1>
+        <h1 className="mainTitle">About me</h1>
         <div className="containerAbout">
           <img src="/images/master.jpg" width="300px" />
 

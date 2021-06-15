@@ -4,7 +4,7 @@ function LoginForm({ setEmail, setPassword, login_check, isLoading, error }) {
   return (
     <div>
       <div className="inputPage">
-        <h1>Login</h1>
+        <h1 className="mainTitle">Login</h1>
 
         <div className="inputText">
           <p>

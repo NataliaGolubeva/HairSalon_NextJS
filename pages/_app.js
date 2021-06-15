@@ -5,6 +5,7 @@ import { useRouter, Router } from "next/router";
 import { useState } from "react";
 import Login from "./login";
 import Booking from "./booking";
+import Logout from "./components/Logout";
 import Footer from "./footer";
 import LoginForm from "./components/LoginForm";
 import Cookies from "js-cookie";
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }) {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   //const router = useRouter();
   const [error, setError] = useState("");
 
@@ -52,6 +54,7 @@ function MyApp({ Component, pageProps }) {
         }
         if (data && !data.error) {
           setUser(data);
+          setLoggedIn(true);
           Cookies.set("user-info", JSON.stringify(user));
           router.push("/");
         }
@@ -65,69 +68,116 @@ function MyApp({ Component, pageProps }) {
         setIsLoading(false); // stop the loader
       });
   }
+  if (loggedIn) {
+    return (
+      <>
+        <div className="main_nav">
+          <div className="logo">LOGO</div>
+          <ul className="navigation">
+            <li>
+              <Link href="/">
+                <a title="go to HOME page" id="home">
+                  HOME
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a title="go to ABOUT page" id="about">
+                  ABOUT
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services">
+                <a title="go to SERVICE page">SERVICES</a>
+              </Link>
+            </li>
 
-  return (
-    <>
-      <div className="main_nav">
-        <div className="logo">LOGO</div>
-        <ul className="navigation">
-          <li>
-            <Link href="/">
-              <a title="go to HOME page" id="home">
-                HOME
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a title="go to ABOUT page" id="about">
-                ABOUT
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/services">
-              <a title="go to SERVICE page">SERVICES</a>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/login?login=true" as="/login">
-              <a title="go to Login page">LOGIN</a>
-            </Link>
-          </li>
-          <li>
-            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
-          </li>
-        </ul>
-      </div>
-
-      <div className="wrap">
-        <div className="main">
-          <Component {...pageProps} />
+            <li>
+              <Link href="/login?login=true" as="/login">
+                <a title="go to Login page">Logout</a>
+              </Link>
+            </li>
+            <li>
+              <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
+            </li>
+          </ul>
         </div>
-      </div>
-      <Modal
-        isOpen={!!router.query.login}
-        onRequestClose={() => router.push("/")}
-        style={{
-          content: {
-            backgroundColor: "#658080",
-            border: "2px solid #AAA9A9",
-          },
-        }}
-      >
-        <LoginForm
-          setEmail={setEmail}
-          setPassword={setPassword}
-          login_check={login_check}
-          isLoading={isLoading}
-          error={error}
-        />
-      </Modal>
-      <Footer />
-    </>
-  );
+
+        <div className="wrap">
+          <div className="main">
+            <Component {...pageProps} />
+          </div>
+        </div>
+
+        <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="main_nav">
+          <div className="logo">LOGO</div>
+          <ul className="navigation">
+            <li>
+              <Link href="/">
+                <a title="go to HOME page" id="home">
+                  HOME
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a title="go to ABOUT page" id="about">
+                  ABOUT
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/services">
+                <a title="go to SERVICE page">SERVICES</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/login?login=true" as="/login">
+                <a title="go to Login page">LOGIN</a>
+              </Link>
+            </li>
+            <li>
+              <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
+            </li>
+          </ul>
+        </div>
+
+        <div className="wrap">
+          <div className="main">
+            <Component {...pageProps} />
+          </div>
+        </div>
+        <Modal
+          isOpen={!!router.query.login}
+          onRequestClose={() => router.push("/")}
+          style={{
+            content: {
+              backgroundColor: "#658080",
+              border: "2px solid #AAA9A9",
+            },
+          }}
+        >
+          <LoginForm
+            setEmail={setEmail}
+            setPassword={setPassword}
+            login_check={login_check}
+            isLoading={isLoading}
+            error={error}
+          />
+        </Modal>
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default MyApp;

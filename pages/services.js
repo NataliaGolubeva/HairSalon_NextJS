@@ -2,10 +2,10 @@ import ServiceList from "./components/ServiceList";
 
 export default function services() {
   return (
-    <>
-      <h1>Our services</h1>
+    <div className="servicePage">
+      <h1 className="mainTitle">Our services</h1>
 
       <ServiceList />
-    </>
+    </div>
   );
 }

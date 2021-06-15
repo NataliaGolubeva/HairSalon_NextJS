@@ -19,11 +19,22 @@ export default function ServiceList() {
   }, []);
   return (
     <>
-      <ul>
+      <ul className="serviceContent">
         {serviceList.length > 0 &&
           serviceList.map((service) => (
-            <li key={service.id}>
-              {service.title} {service.price} €<div>{service.category}</div>
+            <li key={service.id} className="serviceDetails">
+              <input
+                className="checkbox"
+                type="checkbox"
+                value={service.title}
+                name={service.title}
+              />
+              <label className="name" htmlFor={service.title}>
+                {service.title}
+              </label>
+
+              <div className="price">{service.price} €</div>
+              <div className="time">{service.duration} min</div>
             </li>
           ))}
       </ul>

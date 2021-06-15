@@ -53,7 +53,7 @@ export default function Register() {
   }
   return (
     <div className="inputPage">
-      <h1>Register</h1>
+      <h1 className="mainHeader">Register</h1>
       <form onSubmit={register} className="inputBlock">
         <div className="inputWindow">
           <input
@@ -65,7 +65,7 @@ export default function Register() {
           <input
             className="formInput"
             type="text"
-            placeholder="last ncd ha  ame"
+            placeholder="last name"
             onChange={(e) => setLastName(e.target.value)}
           />
           <input
