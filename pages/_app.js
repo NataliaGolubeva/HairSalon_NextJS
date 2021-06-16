@@ -68,116 +68,84 @@ function MyApp({ Component, pageProps }) {
         setIsLoading(false); // stop the loader
       });
   }
-  if (loggedIn) {
-    return (
-      <>
-        <div className="main_nav">
-          <div className="logo">LOGO</div>
-          <ul className="navigation">
-            <li>
-              <Link href="/">
-                <a title="go to HOME page" id="home">
-                  HOME
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a title="go to ABOUT page" id="about">
-                  ABOUT
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/services">
-                <a title="go to SERVICE page">SERVICES</a>
-              </Link>
-            </li>
+  function logout(e) {
+    e.preventDefault();
+    Cookies.unset();
+  }
 
-            <li>
-              <Link href="/login?login=true" as="/login">
-                <a title="go to Login page">Logout</a>
-              </Link>
-            </li>
-            <li>
-              <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
-            </li>
-          </ul>
-        </div>
+  return (
+    <>
+      <div className="main_nav">
+        <div className="logo">LOGO</div>
+        <ul className="navigation">
+          <li>
+            <Link href="/">
+              <a title="go to HOME page" id="home">
+                HOME
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a title="go to ABOUT page" id="about">
+                ABOUT
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/services">
+              <a title="go to SERVICE page">SERVICES</a>
+            </Link>
+          </li>
 
-        <div className="wrap">
-          <div className="main">
-            <Component {...pageProps} />
-          </div>
-        </div>
-
-        <Footer />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div className="main_nav">
-          <div className="logo">LOGO</div>
-          <ul className="navigation">
-            <li>
-              <Link href="/">
-                <a title="go to HOME page" id="home">
-                  HOME
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a title="go to ABOUT page" id="about">
-                  ABOUT
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/services">
-                <a title="go to SERVICE page">SERVICES</a>
-              </Link>
-            </li>
-
+          {!loggedIn ? (
             <li>
               <Link href="/login?login=true" as="/login">
                 <a title="go to Login page">LOGIN</a>
               </Link>
             </li>
+          ) : (
             <li>
-              <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
+              {" "}
+              <Link href="/">
+                <a title="go to Login page" onClick={logout}>
+                  LOGOUT
+                </a>
+              </Link>
             </li>
-          </ul>
-        </div>
+          )}
+          <li>
+            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
+          </li>
+        </ul>
+      </div>
 
-        <div className="wrap">
-          <div className="main">
-            <Component {...pageProps} />
-          </div>
+      <div className="wrap">
+        <div className="main">
+          <Component {...pageProps} />
         </div>
-        <Modal
-          isOpen={!!router.query.login}
-          onRequestClose={() => router.push("/")}
-          style={{
-            content: {
-              backgroundColor: "#658080",
-              border: "2px solid #AAA9A9",
-            },
-          }}
-        >
-          <LoginForm
-            setEmail={setEmail}
-            setPassword={setPassword}
-            login_check={login_check}
-            isLoading={isLoading}
-            error={error}
-          />
-        </Modal>
-        <Footer />
-      </>
-    );
-  }
+      </div>
+      <Modal
+        isOpen={!!router.query.login}
+        onRequestClose={() => router.push("/")}
+        style={{
+          content: {
+            backgroundColor: "#658080",
+            border: "2px solid #AAA9A9",
+          },
+        }}
+      >
+        <LoginForm
+          setEmail={setEmail}
+          setPassword={setPassword}
+          login_check={login_check}
+          isLoading={isLoading}
+          error={error}
+        />
+      </Modal>
+      <Footer />
+    </>
+  );
 }
 
 export default MyApp;

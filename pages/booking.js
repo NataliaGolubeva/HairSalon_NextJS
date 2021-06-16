@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import ReactCalendar from "./components/ReactCalendar.jsx";
 import ServiceList from "./components/ServiceList";
+import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Booking({ sidebar, ShowSideBar }) {
   return (
@@ -10,7 +11,7 @@ export default function Booking({ sidebar, ShowSideBar }) {
       <div className="bookBar">
         <Link href="#">
           <a className="menuBook" onClick={ShowSideBar}>
-            APPOINTMENT
+            <FaShoppingBasket />
           </a>
         </Link>
       </div>
