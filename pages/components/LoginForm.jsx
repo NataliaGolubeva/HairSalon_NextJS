@@ -1,6 +1,14 @@
 import React from "react";
 
-function LoginForm({ setEmail, setPassword, login_check, isLoading, error }) {
+function LoginForm({
+  setEmail,
+  setPassword,
+  login_check,
+  isLoading,
+  error,
+  email,
+  password,
+}) {
   return (
     <div>
       <div className="inputPage">
@@ -18,6 +26,7 @@ function LoginForm({ setEmail, setPassword, login_check, isLoading, error }) {
               className="formInput"
               type="text"
               placeholder="email"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               required={true}
             />
@@ -29,6 +38,7 @@ function LoginForm({ setEmail, setPassword, login_check, isLoading, error }) {
               placeholder="password"
               onChange={(e) => setPassword(e.target.value)}
               required={true}
+              value={password}
             />
           </div>
         </div>

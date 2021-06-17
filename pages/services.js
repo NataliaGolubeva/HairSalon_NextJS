@@ -1,11 +1,15 @@
 import ServiceList from "./components/ServiceList";
-
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import List from "./list";
 export default function services() {
   return (
-    <div className="servicePage">
-      <h1 className="mainTitle">Our services</h1>
+    <Provider store={store}>
+      <div className="servicePage">
+        <h1 className="mainTitle">Our services</h1>
 
-      <ServiceList />
-    </div>
+        <List />
+      </div>
+    </Provider>
   );
 }

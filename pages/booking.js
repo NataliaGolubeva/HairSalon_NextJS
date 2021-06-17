@@ -2,10 +2,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import React, { useState } from "react";
 import ReactCalendar from "./components/ReactCalendar.jsx";
-import ServiceList from "./components/ServiceList";
 import { FaShoppingBasket } from "react-icons/fa";
+import Date from "./components/DatePicker";
 
-export default function Booking({ sidebar, ShowSideBar }) {
+export default function Booking({ sidebar, ShowSideBar, user }) {
+  //  {!user ? <div>Please Login</div> : <div>Hello {user[0].name}</div>}
   return (
     <>
       <div className="bookBar">
@@ -27,7 +28,7 @@ export default function Booking({ sidebar, ShowSideBar }) {
         </div>
         <div className="bookingContent">
           <h2>Choose a day</h2>
-          <ReactCalendar />
+          <Date />
         </div>
       </div>
     </>

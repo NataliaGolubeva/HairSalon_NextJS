@@ -6,13 +6,12 @@
 //deepBlack #0E0906
 // burnham #002923 deepGreen
 //vars
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap");
 
-div {
-  font-family: myFirstFont;
-}
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 html {
   height: 100%;
@@ -21,6 +20,10 @@ body {
   background-color: #e5e5e5;
   color: #0e0906;
   height: 100%;
+}
+h1,
+h2 {
+  font-family: "Cinzel", serif;
 }
 .main_nav {
   display: flex;
@@ -139,19 +142,34 @@ body {
   h1 {
     text-align: center;
   }
-  .serviceContent {
-    margin: 20px;
-    .serviceDetails {
-      list-style: none;
-      display: flex;
-      margin-bottom: 20px;
-      font-size: 20px;
-      .name {
-        padding-right: 10px;
-      }
-      .price {
-        padding-right: 15px;
-        font-size: 1rem;
+  .services {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    @media (max-width: 1020px) {
+      display: block;
+    }
+
+    .serviceContent {
+      margin: 20px;
+      .serviceDetails {
+        list-style: none;
+        display: flex;
+        margin-bottom: 10px;
+        font-size: 20px;
+        .name {
+          padding-right: 10px;
+        }
+        .price {
+          margin-left: auto;
+          padding-right: 15px;
+        }
+        .time {
+          margin-right: 10px;
+        }
+        button {
+          padding: 3px 10px;
+        }
       }
     }
   }
@@ -183,7 +201,8 @@ body {
   width: 100%;
   height: 20px;
 }
-.container {
+
+.homeContainer {
   display: block;
   .header {
     position: fixed;
@@ -195,6 +214,7 @@ body {
     transform: translate(-50%, -50%);
     h1 {
       font-size: 60px;
+      font-family: "Cinzel", serif;
     }
   }
   .iconArrow {
@@ -210,12 +230,25 @@ body {
     margin-top: 180px;
     display: flex;
     justify-content: space-around;
+    @media (max-width: 800px) {
+      display: block;
+      text-align: center;
+    }
+    img {
+      @media (max-width: 800px) {
+        width: 90%;
+      }
+    }
     .block {
       .quote {
         font-size: 30px;
         width: 200px;
         text-align: center;
         margin-left: 95px;
+        @media (max-width: 800px) {
+          margin: 0 auto;
+        }
+
         &.left {
           padding-bottom: 50px;
         }

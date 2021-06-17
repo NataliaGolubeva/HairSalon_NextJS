@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 export default function Home() {
   return (
     <>
-      <div className="container">
+      <div className="homeContainer">
         <div className="header">
           <h1 className="mainHeader">Victoria</h1>
           <h3 className="secondHeader">Diest</h3>

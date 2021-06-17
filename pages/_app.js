@@ -3,42 +3,36 @@ import Link from "next/link";
 import Modal from "react-modal";
 import { useRouter, Router } from "next/router";
 import { useState } from "react";
-import Login from "./login";
 import Booking from "./booking";
-import Logout from "./components/Logout";
 import Footer from "./footer";
 import LoginForm from "./components/LoginForm";
 import Cookies from "js-cookie";
-
-import { route } from "next/dist/next-server/server/router";
+import jwt_decode from "jwt-decode";
 
 Modal.setAppElement("#__next");
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
   const [sidebar, setSidebar] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
   function ShowSideBar() {
     setSidebar(!sidebar);
   }
 
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setEmail] = useState("nata@example.com");
+  const [password, setPassword] = useState("nata123");
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [tokenData, setTokenData] = useState({});
   //const router = useRouter();
   const [error, setError] = useState("");
 
-  function login_check(e) {
-    e.preventDefault();
-    let data = { email, password };
+  function login_check() {
+    let data = { username, password };
     setIsLoading(true);
-    let result = fetch("https://wdev2.be/natalia21/eindwerk/api/login", {
+    let result = fetch("https://wdev2.be/natalia21/eindwerk/api/login_check", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,12 +47,14 @@ function MyApp({ Component, pageProps }) {
           setError("Invalid credentials");
         }
         if (data && !data.error) {
-          setUser(data);
+          setUser(data.token);
           setLoggedIn(true);
-          Cookies.set("user-info", JSON.stringify(user));
+          Cookies.set("user-info", JSON.stringify(data.token));
+          setIsVisible(false);
+
           router.push("/");
         }
-        console.log(data);
+        console.log(data.token);
       })
       .catch((error) => {
         setError("Server Error");
@@ -68,11 +64,12 @@ function MyApp({ Component, pageProps }) {
         setIsLoading(false); // stop the loader
       });
   }
-  function logout(e) {
-    e.preventDefault();
-    Cookies.unset();
-  }
 
+  function logout() {
+    Cookies.remove("user-info");
+    setLoggedIn(false);
+  }
+  user ? console.log(jwt_decode(user)) : console.log("login");
   return (
     <>
       <div className="main_nav">
@@ -92,30 +89,25 @@ function MyApp({ Component, pageProps }) {
               </a>
             </Link>
           </li>
+
+          <li>
+            <Link href="/hairServices">
+              <a title="go to SERVICE page">SERVICES</a>
+            </Link>
+          </li>
           <li>
             <Link href="/services">
-              <a title="go to SERVICE page">SERVICES</a>
+              <a title="go to SERVICE page">Redux</a>
             </Link>
           </li>
 
           {!loggedIn ? (
-            <li>
-              <Link href="/login?login=true" as="/login">
-                <a title="go to Login page">LOGIN</a>
-              </Link>
-            </li>
+            <button onClick={() => setIsVisible(true)}>LOGIN</button>
           ) : (
-            <li>
-              {" "}
-              <Link href="/">
-                <a title="go to Login page" onClick={logout}>
-                  LOGOUT
-                </a>
-              </Link>
-            </li>
+            <button onClick={() => logout()}>LOGOUT</button>
           )}
           <li>
-            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} />
+            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
           </li>
         </ul>
       </div>
@@ -126,8 +118,8 @@ function MyApp({ Component, pageProps }) {
         </div>
       </div>
       <Modal
-        isOpen={!!router.query.login}
-        onRequestClose={() => router.push("/")}
+        isOpen={isVisible}
+        onRequestClose={() => setIsVisible(false)}
         style={{
           content: {
             backgroundColor: "#658080",
@@ -136,6 +128,8 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <LoginForm
+          email={username}
+          password={password}
           setEmail={setEmail}
           setPassword={setPassword}
           login_check={login_check}

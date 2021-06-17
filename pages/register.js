@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
+import validator from "validator";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -7,19 +8,14 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   const router = useRouter();
   async function register(e) {
     e.preventDefault();
     let item = { name, lastName, email, phoneNumber, password };
-    // let result = await fetch("https://127.0.0.1:8001/api/register", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/x-www-form-urlencoded",
-    //     Accept: "application/x-www-form-urlencoded",
-    //   },
-    //   body: JSON.stringify(item),
-    // });
+
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -37,20 +33,28 @@ export default function Register() {
       redirect: "follow",
     };
 
-    const result = await fetch(
-      "https://wdev2.be/natalia21/eindwerk/api/register",
-      requestOptions
-    );
-    const data = await result.json();
-
-    //   .then(response => response.text())
-    //   .then(result => console.log(result))
-    //   .catch(error => console.log('error', error));
-
-    // result = await result.json();
-
-    router.push("/login");
+    try {
+      setIsLoading(true);
+      const result = await fetch(
+        "https://wdev2.be/natalia21/eindwerk/api/register",
+        requestOptions
+      );
+      const data = await result.json();
+      if (data && !data.error) {
+        router.push("/login");
+      }
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
   }
+  const validateEmail = (e) => {
+    if (validator.isEmail(e)) {
+      setEmail(e);
+    } else {
+      setEmailError("Enter valid Email!");
+    }
+  };
   return (
     <div className="inputPage">
       <h1 className="mainHeader">Register</h1>
@@ -72,8 +76,9 @@ export default function Register() {
             className="formInput"
             type="text"
             placeholder="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => validateEmail(e.target.value)}
           />
+          {emailError && <div className="error">{emailError}</div>}
           <input
             className="formInput"
             type="text"
