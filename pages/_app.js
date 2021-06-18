@@ -2,7 +2,7 @@ import "../styles/styles.scss";
 import Link from "next/link";
 import Modal from "react-modal";
 import { useRouter, Router } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Booking from "./booking";
 import Footer from "./footer";
 import LoginForm from "./components/LoginForm";
@@ -12,6 +12,17 @@ import jwt_decode from "jwt-decode";
 Modal.setAppElement("#__next");
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    const jwt = Cookies.get("user-info");
+    if (jwt) {
+      const { id } = jwt_decode(jwt);
+      if (id) {
+        setUser(id);
+        console.log(id);
+        setLoggedIn(true);
+      }
+    }
+  }, []);
   const router = useRouter();
   const [sidebar, setSidebar] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -22,7 +33,7 @@ function MyApp({ Component, pageProps }) {
 
   const [username, setEmail] = useState("nata@example.com");
   const [password, setPassword] = useState("nata123");
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [tokenData, setTokenData] = useState({});
@@ -69,7 +80,10 @@ function MyApp({ Component, pageProps }) {
     Cookies.remove("user-info");
     setLoggedIn(false);
   }
-  user ? console.log(jwt_decode(user)) : console.log("login");
+  // function decodeJwt() {
+  //   user ? console.log(jwt_decode(user)) : console.log("login");
+  // }
+
   return (
     <>
       <div className="main_nav">
