@@ -1,7 +1,7 @@
-import ServiceList from "./components/ServiceList";
+import ServiceList from "../components/ServiceList";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import List from "./list";
+import store from "../redux/store";
+import List from "../components/ReduxServiceList";
 export default function services() {
   return (
     <Provider store={store}>

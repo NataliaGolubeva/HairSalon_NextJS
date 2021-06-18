@@ -1,7 +1,7 @@
 import { ImBin } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItem, clear } from "../redux/basket";
-import { setQuantity } from "../redux/basket";
+import { removeItem, clear } from "../../redux/basket";
+import { setQuantity } from "../../redux/basket";
 export default function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector((store) => store.basketState.basket);

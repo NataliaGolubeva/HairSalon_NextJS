@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../redux/basket";
-import { productAction } from "../redux/service";
+import { addItem } from "../../redux/basket";
+import { productAction } from "../../redux/service";
 
 export default function Services({ product: { id, name, price, quantity } }) {
   const dispatch = useDispatch();

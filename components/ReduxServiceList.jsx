@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-import Service from "./components/Services";
-import Basket from "./components/Basket";
+import Service from "./reduxComponents/Services";
+import Basket from "./reduxComponents/Basket";
 
-export default function List() {
+export default function ReduxServiceList() {
   const products = useSelector((store) => store.productsState.products);
   return (
     <>

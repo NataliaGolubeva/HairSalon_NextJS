@@ -5,7 +5,7 @@ import { useRouter, Router } from "next/router";
 import { useState, useEffect } from "react";
 import Booking from "./booking";
 import Footer from "./footer";
-import LoginForm from "./components/LoginForm";
+import LoginForm from "../components/LoginForm";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 
@@ -110,7 +110,7 @@ function MyApp({ Component, pageProps }) {
             </Link>
           </li>
           <li>
-            <Link href="/services">
+            <Link href="/ourServices">
               <a title="go to SERVICE page">Redux</a>
             </Link>
           </li>

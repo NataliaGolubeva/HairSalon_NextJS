@@ -1,12 +1,13 @@
 import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
-import React, { useState } from "react";
-import ReactCalendar from "./components/ReactCalendar.jsx";
+import React, { useState, useEffect } from "react";
+
 import { FaShoppingBasket } from "react-icons/fa";
-import Date from "./components/DatePicker";
+import Date from "../components/DatePicker";
 
 export default function Booking({ sidebar, ShowSideBar, user }) {
   //  {!user ? <div>Please Login</div> : <div>Hello {user[0].name}</div>}
+  useEffect(() => {});
   return (
     <>
       <div className="bookBar">
