@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <div className="main_nav">
-        <div className="logo">LOGO</div>
+        <div className="logo">Victoria</div>
         <ul className="navigation">
           <li>
             <Link href="/">
@@ -116,9 +116,13 @@ function MyApp({ Component, pageProps }) {
           </li>
 
           {!loggedIn ? (
-            <button onClick={() => setIsVisible(true)}>LOGIN</button>
+            <button className="loginBtn" onClick={() => setIsVisible(true)}>
+              LOGIN
+            </button>
           ) : (
-            <button onClick={() => logout()}>LOGOUT</button>
+            <button className="loginBtn" onClick={() => logout()}>
+              LOGOUT
+            </button>
           )}
           <li>
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />

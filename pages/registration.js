@@ -79,7 +79,7 @@ export default function Register() {
             className="formInput"
             type="password"
             placeholder="password"
-            {...register("password", { required: true, minLength: 6 })}
+            {...register("password", { required: true, minLength: 20 })}
           />
           {errors.password && <p>Min length is 6 characters</p>}
         </div>

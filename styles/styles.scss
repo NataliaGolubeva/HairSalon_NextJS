@@ -7,6 +7,7 @@
 // burnham #002923 deepGreen
 //vars
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 * {
   margin: 0;
@@ -25,19 +26,27 @@ h1,
 h2 {
   font-family: "Cinzel", serif;
 }
+
 .main_nav {
   display: flex;
   margin-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #0e0906;
-
+  font-size: 1rem;
   .logo {
     padding-left: 2rem;
+    text-transform: uppercase;
+    font-family: "Permanent Marker", cursive;
   }
   .navigation {
     display: flex;
     list-style-type: none;
     margin-left: auto;
+    .loginBtn {
+      border: none;
+      background-color: #e5e5e5;
+      font-size: 1rem;
+    }
     a {
       text-decoration: none;
       color: #0e0906;
@@ -378,12 +387,26 @@ h2 {
     transform: rotate(450deg);
   }
 }
-.footer {
+.footerContainer {
+  display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
   height: 70px;
+  line-height: 70px;
   background-color: #0e0906;
   color: white;
   width: 100%;
+  .copyright {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+  }
+  .followUs {
+    margin-left: auto;
+    a {
+      color: white;
+      font-size: 2rem;
+      margin-right: 2rem;
+    }
+  }
 }

@@ -1,15 +1,19 @@
 import ServiceList from "../components/ServiceList";
+
 import { Provider } from "react-redux";
-import store from "../redux/store";
-import List from "../components/ReduxServiceList";
+import { store, persistor } from "../redux/store";
+import ReduxServiceList from "../components/ReduxServiceList";
+import { PersistGate } from "redux-persist/lib/integration/react";
 export default function services() {
   return (
     <Provider store={store}>
-      <div className="servicePage">
-        <h1 className="mainTitle">Our services</h1>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="servicePage">
+          <h1 className="mainTitle">Our services</h1>
 
-        <List />
-      </div>
+          <ReduxServiceList />
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
