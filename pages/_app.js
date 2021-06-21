@@ -232,13 +232,13 @@ function MyApp({ Component, pageProps }) {
                 </a>
               </li>
             )}
-            <li>
+            {/* <li>
               <Booking
                 sidebar={sidebar}
                 ShowSideBar={ShowSideBar}
                 user={user}
               />
-            </li>
+            </li> */}
           </ul>
         )}
       </div>
