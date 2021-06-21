@@ -197,7 +197,9 @@ function MyApp({ Component, pageProps }) {
             </li>
             <li>
               <Link href="/blog">
-                <a title="go to Blog page">BLOG</a>
+                <a title="go to Blog page" onClick={toggleMobileNav}>
+                  BLOG
+                </a>
               </Link>
             </li>
             <li>

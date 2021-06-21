@@ -198,12 +198,15 @@ h2 {
 }
 
 .servicePage {
-  margin: 20px;
+  margin: 40px;
+  @media (max-width: 768px) {
+    margin: 35px;
+    margin-top: 65px;
+  }
   @media (max-width: 414px) {
     margin: 30px;
     margin-top: 70px;
   }
-
   .services {
     display: flex;
     justify-content: space-around;
@@ -211,7 +214,6 @@ h2 {
     @media (max-width: 1020px) {
       display: block;
     }
-
     .serviceContent {
       margin: 20px;
       .serviceDetails {
@@ -232,6 +234,32 @@ h2 {
         button {
           padding: 3px 10px;
         }
+      }
+    }
+  }
+}
+.blogPage {
+  margin: 40px;
+
+  @media (max-width: 768px) {
+    margin: 35px;
+    margin-top: 65px;
+  }
+
+  .blogContent {
+    margin-top: 20px;
+    .postDetails {
+      list-style-type: none;
+      margin-bottom: 30px;
+      .postTitle {
+        font-size: 20px;
+        font-family: "Cinzel", serif;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .date {
+        margin-top: 10px;
+        text-align: end;
       }
     }
   }
@@ -417,9 +445,10 @@ h2 {
   }
 }
 .wrapper {
-  margin: 20px;
+  margin: 40px;
   @media (max-width: 768px) {
     margin: 35px;
+    margin-top: 65px;
   }
   @media (max-width: 428px) {
     margin-top: 65px;
@@ -428,7 +457,7 @@ h2 {
     margin-top: 20px;
 
     @media (max-width: 768px) {
-      margin-top: 50px;
+      margin-top: 20px;
     }
     @media (max-width: 428px) {
       margin-top: 30px;
