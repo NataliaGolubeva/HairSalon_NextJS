@@ -111,6 +111,9 @@ h2 {
   text-align: center;
   max-width: 70%;
   margin: 0 auto;
+  @media (max-width: 414px) {
+    margin-top: 20px;
+  }
   .error {
     background-color: rgb(199, 70, 70);
     width: 100%;
@@ -123,6 +126,10 @@ h2 {
     margin: 30px;
     font-size: 20px;
     width: 100%;
+    @media (max-width: 414px) {
+      margin-top: 10px;
+      margin-left: 0;
+    }
 
     a {
       margin-left: 10px;
@@ -134,6 +141,9 @@ h2 {
       border: 0.16em solid #ffffff;
       border-radius: 4px;
       text-align: center;
+      @media (max-width: 414px) {
+        margin-top: 20px;
+      }
 
       &:hover {
         background-color: white;
@@ -187,9 +197,11 @@ h2 {
 
 .servicePage {
   margin: 20px;
-  h1 {
-    text-align: center;
+  @media (max-width: 414px) {
+    margin: 30px;
+    margin-top: 70px;
   }
+
   .services {
     display: flex;
     justify-content: space-around;
@@ -263,12 +275,21 @@ h2 {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    @media (max-width: 768px) {
-      top: 28%;
+    @media (max-width: 414px) {
+      left: 43%;
     }
+    @media (max-width: 375px) {
+      left: 40%;
+    }
+
     h1 {
       font-size: 60px;
       font-family: "Cinzel", serif;
+    }
+    .secondHeader {
+      @media (max-width: 414px) {
+        margin-left: 70px;
+      }
     }
   }
   .iconArrow {
@@ -279,18 +300,31 @@ h2 {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -60%);
+    @media (max-width: 1024px) {
+      top: 87%;
+    }
+    @media (max-width: 768px) {
+      top: 85%;
+    }
+    @media (max-width: 414px) {
+      top: 80%;
+      left: 48%;
+    }
   }
   .homeContent {
     margin-top: 180px;
     display: flex;
     justify-content: space-around;
+    @media (max-width: 1024px) {
+      margin-top: 250px;
+    }
     @media (max-width: 800px) {
       display: block;
       text-align: center;
     }
     img {
-      @media (max-width: 800px) {
-        width: 90%;
+      @media (max-width: 768px) {
+        width: 80%;
       }
     }
     .block {
@@ -299,7 +333,7 @@ h2 {
         width: 200px;
         text-align: center;
         margin-left: 95px;
-        @media (max-width: 800px) {
+        @media (max-width: 768px) {
           margin: 0 auto;
         }
 
@@ -318,14 +352,35 @@ h2 {
     justify-content: center;
     resize: vertical;
     min-height: 700px;
+    @media (max-width: 1024px) {
+      min-height: 500px;
+    }
+    @media (max-width: 768px) {
+      min-height: 950px;
+    }
+
+    @media (max-width: 414px) {
+      min-height: 650px;
+    }
+    @media (max-width: 375px) {
+      min-height: 580px;
+    }
     .centerQuote {
       font-size: 30px;
       text-align: center;
       resize: vertical;
       margin-top: 30%;
       margin-bottom: auto;
-      @media (max-width: 800px) {
-        margin-top: 35%;
+      @media (max-width: 1024px) {
+        margin-top: 15%;
+      }
+      @media (max-width: 768px) {
+        margin-top: 55%;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      @media (max-width: 414px) {
+        margin-top: 65%;
       }
     }
     .centerLink {
@@ -349,13 +404,35 @@ h2 {
 }
 .wrapper {
   margin: 20px;
+  @media (max-width: 768px) {
+    margin: 35px;
+  }
   .containerAbout {
     margin-top: 20px;
     display: flex;
+    @media (max-width: 768px) {
+      margin-top: 50px;
+    }
+    @media (max-width: 414px) {
+      display: block;
+      margin-top: 30px;
+    }
+    img {
+      width: 300px;
+      @media (max-width: 414px) {
+        margin-left: 1.5rem;
+      }
+      @media (max-width: 414px) {
+        margin-left: 1.2rem;
+      }
+    }
 
     .content {
       font-size: 20px;
       margin-left: 20px;
+      @media (max-width: 414px) {
+        margin-top: 1.5rem;
+      }
       .addressContent {
         margin-bottom: 15px;
       }
@@ -451,16 +528,30 @@ h2 {
   background-color: #0e0906;
   color: white;
   width: 100%;
+  @media (max-width: 414px) {
+    display: block;
+    line-height: 30px;
+    text-align: center;
+  }
   .copyright {
     font-size: 1.1rem;
     margin-left: 2rem;
+    @media (max-width: 414px) {
+      font-size: 0.8rem;
+      margin-right: 40px;
+    }
   }
   .followUs {
     margin-left: auto;
+
     a {
       color: white;
       font-size: 2rem;
       margin-right: 2rem;
+      @media (max-width: 414px) {
+        font-size: 1.5rem;
+        margin-left: 20px;
+      }
     }
   }
 }

@@ -143,9 +143,9 @@ function MyApp({ Component, pageProps }) {
               </a>
             </li>
           )}
-          <li>
+          {/* <li>
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -187,6 +187,13 @@ function MyApp({ Component, pageProps }) {
               <Link href="/hairServices">
                 <a title="go to SERVICE page" onClick={toggleMobileNav}>
                   SERVICES
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact">
+                <a title="go to SERVICE page" onClick={toggleMobileNav}>
+                  CONTACT US
                 </a>
               </Link>
             </li>

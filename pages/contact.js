@@ -55,8 +55,9 @@ function contact() {
           {...viewport}
           onViewportChange={(newView) => setViewport(newView)}
           mapStyle="mapbox://styles/mapbox/basic-v8"
-          width="400px"
-          height="400px"
+          width="350px"
+          height="350px"
+          className="map"
           onClick={onClick}
         >
           <Marker

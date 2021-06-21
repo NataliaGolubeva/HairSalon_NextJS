@@ -4,7 +4,7 @@ export default function about() {
       <div className="wrapper">
         <h1 className="mainTitle">About me</h1>
         <div className="containerAbout">
-          <img src="/images/master.jpg" width="300px" />
+          <img classname="aboutImg" src="/images/master.jpg" />
 
           <div className="content">
             <p>
