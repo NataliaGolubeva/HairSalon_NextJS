@@ -48,27 +48,28 @@ function contact() {
     <div className="wrapper">
       <h1 className="mainTitle">Contact</h1>
       <div className="containerAbout">
-        <ReactMapGl
-          mapboxApiAccessToken={
-            "pk.eyJ1IjoibmF0YWxpYWdvbCIsImEiOiJja2p4aDBlZ3MwczA1MnZsN3J0emQyMGgwIn0.u-AzjtzNo8bB3cKZOftmrg"
-          }
-          {...viewport}
-          onViewportChange={(newView) => setViewport(newView)}
-          mapStyle="mapbox://styles/mapbox/basic-v8"
-          width="350px"
-          height="350px"
-          className="map"
-          onClick={onClick}
-        >
-          <Marker
-            latitude={50.98687108528024}
-            longitude={5.052529586729512}
-            offsetLeft={-20}
-            offsetTop={-10}
+        <div className="mapBox">
+          <ReactMapGl
+            mapboxApiAccessToken={
+              "pk.eyJ1IjoibmF0YWxpYWdvbCIsImEiOiJja2p4aDBlZ3MwczA1MnZsN3J0emQyMGgwIn0.u-AzjtzNo8bB3cKZOftmrg"
+            }
+            {...viewport}
+            onViewportChange={(newView) => setViewport(newView)}
+            mapStyle="mapbox://styles/mapbox/basic-v8"
+            width="350px"
+            height="350px"
+            onClick={onClick}
           >
-            <FaMapMarkerAlt color="red" />
-          </Marker>
-        </ReactMapGl>
+            <Marker
+              latitude={50.98687108528024}
+              longitude={5.052529586729512}
+              offsetLeft={-20}
+              offsetTop={-10}
+            >
+              <FaMapMarkerAlt color="red" />
+            </Marker>
+          </ReactMapGl>
+        </div>
         <div className="content">
           <div className="addressContent">
             Address: <span>Koning Albertstraat 42, 3290 Diest</span>

@@ -66,7 +66,6 @@ export default function ChooseDate({ user }) {
         onChange={(thisDate) => setDate(thisDate)}
         onCalendarClose={handleCalendarClose}
         onCalendarOpen={handleCalendarOpen}
-        showTimeSelect
         dateFormat="Pp"
         minDate={new Date()}
         filterDate={isWeekday}

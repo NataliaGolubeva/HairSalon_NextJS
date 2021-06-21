@@ -117,12 +117,17 @@ function MyApp({ Component, pageProps }) {
           </li>
           <li>
             <Link href="/contact">
-              <a title="go to SERVICE page">CONTACT US</a>
+              <a title="go to Contact page">CONTACT US</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/ourServices">
               <a title="go to SERVICE page">Redux</a>
+            </Link>
+          </li> */}
+          <li>
+            <Link href="/blog">
+              <a title="go to Blog page">BLOG</a>
             </Link>
           </li>
 
@@ -191,19 +196,24 @@ function MyApp({ Component, pageProps }) {
               </Link>
             </li>
             <li>
+              <Link href="/blog">
+                <a title="go to Blog page">BLOG</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/contact">
                 <a title="go to SERVICE page" onClick={toggleMobileNav}>
                   CONTACT US
                 </a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/ourServices">
                 <a title="go to SERVICE page" onClick={toggleMobileNav}>
                   Redux
                 </a>
               </Link>
-            </li>
+            </li> */}
 
             {!loggedIn ? (
               <li>
@@ -222,9 +232,13 @@ function MyApp({ Component, pageProps }) {
                 </a>
               </li>
             )}
-            {/* <li>
-            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
-          </li> */}
+            <li>
+              <Booking
+                sidebar={sidebar}
+                ShowSideBar={ShowSideBar}
+                user={user}
+              />
+            </li>
           </ul>
         )}
       </div>
