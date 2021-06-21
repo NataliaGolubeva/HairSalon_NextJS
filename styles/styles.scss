@@ -275,11 +275,14 @@ h2 {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media (max-width: 480px) {
+      left: 45%;
+    }
     @media (max-width: 414px) {
-      left: 43%;
+      left: 40%;
     }
     @media (max-width: 375px) {
-      left: 40%;
+      left: 37%;
     }
 
     h1 {
@@ -287,8 +290,14 @@ h2 {
       font-family: "Cinzel", serif;
     }
     .secondHeader {
+      @media (max-width: 480px) {
+        margin-left: 50px;
+      }
       @media (max-width: 414px) {
-        margin-left: 70px;
+        margin-left: 100px;
+      }
+      @media (max-width: 375px) {
+        margin-left: 100px;
       }
     }
   }
@@ -409,20 +418,24 @@ h2 {
   }
   .containerAbout {
     margin-top: 20px;
-    display: flex;
+
     @media (max-width: 768px) {
       margin-top: 50px;
     }
     @media (max-width: 414px) {
-      display: block;
       margin-top: 30px;
     }
     img {
       width: 300px;
+      height: auto;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 20px;
+
       @media (max-width: 414px) {
         margin-left: 1.5rem;
       }
-      @media (max-width: 414px) {
+      @media (max-width: 375px) {
         margin-left: 1.2rem;
       }
     }
