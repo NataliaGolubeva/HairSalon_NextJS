@@ -11,32 +11,32 @@ export default function ServiceList() {
   const [keratin, setKeratin] = useState([]);
 
   useEffect(() => {
-    axios(`https://wdev2.be/natalia21/eindwerk/api/service_lists.json?page=1`)
+    axios(`https://wdev2.be/natalia21/eindwerk/api/service_lists?page=1`)
       .then((response) => {
-        setServiceList(response.data);
-        console.log(response.data);
+        setServiceList(response.data["hydra:member"]);
+        console.log(response.data["hydra:member"]);
         setHaircut(
-          response.data.filter(
+          response.data["hydra:member"].filter(
             (item) => item.category === "/natalia21/eindwerk/api/categories/1"
           )
         );
         setStyle(
-          response.data.filter(
+          response.data["hydra:member"].filter(
             (item) => item.category === "/natalia21/eindwerk/api/categories/2"
           )
         );
         setColor(
-          response.data.filter(
+          response.data["hydra:member"].filter(
             (item) => item.category === "/natalia21/eindwerk/api/categories/3"
           )
         );
         setTreatments(
-          response.data.filter(
+          response.data["hydra:member"].filter(
             (item) => item.category === "/natalia21/eindwerk/api/categories/4"
           )
         );
         setKeratin(
-          response.data.filter(
+          response.data["hydra:member"].filter(
             (item) => item.category === "/natalia21/eindwerk/api/categories/5"
           )
         );

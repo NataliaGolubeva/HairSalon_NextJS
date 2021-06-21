@@ -29,7 +29,7 @@ export default function Booking({ sidebar, ShowSideBar, user }) {
         </div>
         <div className="bookingContent">
           <h2>Choose a day</h2>
-          <Date />
+          <Date user={user} />
         </div>
       </div>
     </>

@@ -8,6 +8,8 @@ import Footer from "./footer";
 import LoginForm from "../components/LoginForm";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
+import HamburgerMenu from "react-hamburger-menu";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 Modal.setAppElement("#__next");
 
@@ -26,9 +28,13 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [sidebar, setSidebar] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
 
   function ShowSideBar() {
     setSidebar(!sidebar);
+  }
+  function toggleMobileNav() {
+    setMobileNav(!mobileNav);
   }
 
   const [username, setEmail] = useState("nata@example.com");
@@ -110,24 +116,110 @@ function MyApp({ Component, pageProps }) {
             </Link>
           </li>
           <li>
+            <Link href="/contact">
+              <a title="go to SERVICE page">CONTACT US</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/ourServices">
               <a title="go to SERVICE page">Redux</a>
             </Link>
           </li>
 
           {!loggedIn ? (
-            <button className="loginBtn" onClick={() => setIsVisible(true)}>
-              LOGIN
-            </button>
+            <li>
+              <a
+                href="#"
+                className="loginBtn"
+                onClick={() => setIsVisible(true)}
+              >
+                LOGIN
+              </a>
+            </li>
           ) : (
-            <button className="loginBtn" onClick={() => logout()}>
-              LOGOUT
-            </button>
+            <li>
+              <a href="/" className="loginBtn" onClick={() => logout()}>
+                LOGOUT
+              </a>
+            </li>
           )}
           <li>
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
           </li>
         </ul>
+      </div>
+
+      <div className="mobile_nav">
+        <HamburgerMenu
+          isOpen={mobileNav}
+          menuClicked={toggleMobileNav}
+          width={40}
+          height={30}
+          strokeWidth={3}
+          rotate={0}
+          color="black"
+          borderRadius={0}
+          animationDuration={0.5}
+          className="navIcon"
+        />
+        {mobileNav && (
+          <ul className="navigation">
+            <li>
+              <Link href="/">
+                <a title="go to HOME page" id="home" onClick={toggleMobileNav}>
+                  HOME
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about">
+                <a
+                  title="go to ABOUT page"
+                  id="about"
+                  onClick={toggleMobileNav}
+                >
+                  ABOUT
+                </a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/hairServices">
+                <a title="go to SERVICE page" onClick={toggleMobileNav}>
+                  SERVICES
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/ourServices">
+                <a title="go to SERVICE page" onClick={toggleMobileNav}>
+                  Redux
+                </a>
+              </Link>
+            </li>
+
+            {!loggedIn ? (
+              <li>
+                <a
+                  href="#"
+                  className="loginBtn"
+                  onClick={() => setIsVisible(true)}
+                >
+                  LOGIN
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a href="/" className="loginBtn" onClick={() => logout()}>
+                  LOGOUT
+                </a>
+              </li>
+            )}
+            {/* <li>
+            <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
+          </li> */}
+          </ul>
+        )}
       </div>
 
       <div className="wrap">
