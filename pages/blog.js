@@ -9,7 +9,7 @@ function blog() {
     axios(`https://wdev2.be/natalia21/eindwerk/api/blogs.json?page=1`)
       .then((response) => {
         setBlogList(response.data);
-        console.log(response.data);
+        console.log(response.data.reverse());
       })
       .catch((e) => {
         console.log(e);
