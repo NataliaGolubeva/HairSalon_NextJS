@@ -45,15 +45,16 @@ export default function ChooseDate({ user }) {
       setIsLoading(false);
     }
   }
-  function findClient() {
-    if (!user) {
-      return null;
-    }
+  // const client = "/natalia21/eindwerk/api/users/" + user;
+  // console.log(client);
 
-    const client = "/natalia21/eindwerk/api/users/" + user;
-    return client;
-  }
-  const myDate = moment(thisDate).format("YYYY-MM-DD");
+  // function findClient() {
+  //   if (!user) {
+  //     return null;
+  //   }
+  //   return client;
+  // }
+  const myDate = moment(thisDate).format("yyyy-MM-DD");
   //  h:mm aa
   return (
     <div className="bookingPage">
@@ -77,14 +78,12 @@ export default function ChooseDate({ user }) {
             <input
               className="formInput"
               type="text"
-              value="/natalia21/eindwerk/api/users/5"
               {...register("user", { required: true })}
             />
           </div>
           <input
             className="formInput"
             type="text"
-            value="/natalia21/eindwerk/api/service_lists/2"
             {...register("service", { required: true })}
           />
 

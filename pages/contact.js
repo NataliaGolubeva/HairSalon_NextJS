@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ReactMapGl, {
   Marker,
   LinearInterpolator,
   WebMercatorViewport,
 } from "react-map-gl";
+import mapboxgl from "!mapbox-gl";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import bbox from "@turf/bbox";
 function contact() {
   const [viewport, setViewport] = useState({
-    latitude: 48.8798,
-    longtitude: 6.70093,
-    zoom: 4,
+    latitude: 50.98,
+    longitude: 5.04,
+    zoom: 9,
     bearing: 0,
     pitch: 10,
   });
+
   const onClick = (event) => {
     const feature = event.features[0];
     if (feature) {
@@ -55,7 +57,7 @@ function contact() {
             }
             {...viewport}
             onViewportChange={(newView) => setViewport(newView)}
-            mapStyle="mapbox://styles/mapbox/basic-v8"
+            mapStyle="mapbox://styles/mapbox/streets-v11"
             width="350px"
             height="350px"
             onClick={onClick}
