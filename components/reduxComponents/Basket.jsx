@@ -22,7 +22,7 @@ export default function Basket() {
               const index = products.findIndex((s) => s.id === id);
               return (
                 <tr key={id}>
-                  <th>{products[index].name}</th>
+                  <th>{products[index].title}</th>
                   <th>
                     <input
                       type="number"

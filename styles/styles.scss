@@ -220,6 +220,9 @@ h2 {
     .redService {
       display: flex;
       line-height: 1.7rem;
+      .price {
+        margin-left: auto;
+      }
       .btnAdd {
         margin-left: auto;
         margin-top: 5px;

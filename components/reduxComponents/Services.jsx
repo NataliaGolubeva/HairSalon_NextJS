@@ -13,9 +13,9 @@ export default function Services({ product: { id, title, price } }) {
   return (
     <div className="redService">
       <div>{title}</div>
-
+      <div className="price">{price} €</div>
       <button className="btnAdd" onClick={() => dispatch(addItem(id))}>
-        add
+        ADD
       </button>
     </div>
   );

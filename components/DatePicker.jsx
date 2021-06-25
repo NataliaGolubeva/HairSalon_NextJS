@@ -80,14 +80,12 @@ export default function ChooseDate({ user }) {
               className="formInput"
               type="text"
               {...register("user", { required: true })}
-              value={`/natalia21/eindwerk/api/users/${user}`}
             />
           </div>
           <input
             className="formInput"
             type="text"
             {...register("service", { required: true })}
-            value={"/natalia21/eindwerk/api/service_lists/1"}
           />
 
           <div>
