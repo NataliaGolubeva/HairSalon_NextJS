@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import HamburgerMenu from "react-hamburger-menu";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaShoppingBasket } from "react-icons/fa";
 
 Modal.setAppElement("#__next");
 
@@ -148,6 +149,13 @@ function MyApp({ Component, pageProps }) {
               </a>
             </li>
           )}
+          <li>
+            <Link href="/ourServices">
+              <a title="go to Blog page">
+                <FaShoppingBasket />
+              </a>
+            </Link>
+          </li>
           {/* <li>
             <Booking sidebar={sidebar} ShowSideBar={ShowSideBar} user={user} />
           </li> */}
@@ -234,6 +242,13 @@ function MyApp({ Component, pageProps }) {
                 </a>
               </li>
             )}
+            <li>
+              <Link href="/ourServices">
+                <a title="go to Blog page">
+                  <FaShoppingBasket />
+                </a>
+              </Link>
+            </li>
             {/* <li>
               <Booking
                 sidebar={sidebar}

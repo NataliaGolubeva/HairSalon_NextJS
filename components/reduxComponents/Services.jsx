@@ -11,11 +11,12 @@ export default function Services({ product: { id, title, price } }) {
     dispatch(getProducts());
   }, []);
   return (
-    <>
+    <div className="redService">
       <div>{title}</div>
-      <div>{price}</div>
 
-      <button onClick={() => dispatch(addItem(id))}>add to basket</button>
-    </>
+      <button className="btnAdd" onClick={() => dispatch(addItem(id))}>
+        add
+      </button>
+    </div>
   );
 }

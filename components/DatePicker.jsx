@@ -58,7 +58,7 @@ export default function ChooseDate({ user }) {
   //  h:mm aa
   return (
     <div className="bookingPage">
-      {user && <p>{user}</p>}
+      <h2>Choose a date</h2>
       <p>
         Current selected date is <b>{moment(thisDate).format("DD MM YYYY")}</b>
       </p>
@@ -71,6 +71,7 @@ export default function ChooseDate({ user }) {
         minDate={new Date()}
         filterDate={isWeekday}
         dateFormat=" d MMMM yyyy"
+        showTimeSelect
       />
       <form onSubmit={handleSubmit(onSubmit)} className="inputBlock">
         <div className="bookForm">
@@ -98,7 +99,7 @@ export default function ChooseDate({ user }) {
             />
           </div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Book</button>
       </form>
     </div>
   );

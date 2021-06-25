@@ -13,8 +13,8 @@ export default function Basket() {
     }, 0);
   });
   return (
-    <>
-      <h1>Basket</h1>
+    <div className="basket">
+      <h2>Basket</h2>
       {basket.length > 0 ? (
         <div>
           <table>
@@ -56,6 +56,6 @@ export default function Basket() {
       ) : (
         <p>No items in the basket</p>
       )}
-    </>
+    </div>
   );
 }

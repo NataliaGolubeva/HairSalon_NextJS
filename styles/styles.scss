@@ -34,7 +34,7 @@ h2 {
   padding-bottom: 0.7rem;
   border-bottom: 1px solid #0e0906;
   font-size: 1rem;
-  @media (max-width: 768px) {
+  @media (max-width: 1015px) {
     display: none;
   }
   .logo {
@@ -67,7 +67,7 @@ h2 {
 .mobile_nav {
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1015px) {
     display: block;
     position: absolute;
     z-index: 5;
@@ -207,6 +207,19 @@ h2 {
   @media (max-width: 414px) {
     margin: 30px;
     margin-top: 70px;
+  }
+  .bookingBasket {
+    display: flex;
+    justify-content: space-evenly;
+    .redService {
+      display: flex;
+      .btnAdd {
+        margin-left: auto;
+      }
+    }
+    .basket {
+      display: block;
+    }
   }
   .services {
     display: flex;
@@ -552,6 +565,7 @@ h2 {
     }
   }
 }
+
 .ReactModal__Content {
   padding: 20px 20px 20px 20px;
   -webkit-animation-name: modal-animation;

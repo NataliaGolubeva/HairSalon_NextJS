@@ -9,7 +9,7 @@ export default function services() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <div className="servicePage">
-          <h1 className="mainTitle">Our services</h1>
+          <h1 className="mainTitle">Book an appointment</h1>
 
           <ReduxServiceList />
         </div>
