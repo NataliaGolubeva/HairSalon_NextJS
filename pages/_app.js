@@ -244,7 +244,7 @@ function MyApp({ Component, pageProps }) {
             )}
             <li>
               <Link href="/ourServices">
-                <a title="go to Blog page">
+                <a title="go to Blog page" onClick={toggleMobileNav}>
                   <FaShoppingBasket />
                 </a>
               </Link>

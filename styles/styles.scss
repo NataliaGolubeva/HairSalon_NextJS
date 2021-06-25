@@ -211,10 +211,20 @@ h2 {
   .bookingBasket {
     display: flex;
     justify-content: space-evenly;
+    @media (max-width: 850px) {
+      display: block;
+    }
+    h2 {
+      margin-top: 20px;
+    }
     .redService {
       display: flex;
+      line-height: 1.7rem;
       .btnAdd {
         margin-left: auto;
+        margin-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
       }
     }
     .basket {
